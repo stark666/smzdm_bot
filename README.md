@@ -11,7 +11,7 @@
 # 实现功能
 + `什么值得买`每日签到
 + 通过 `SERVERCHAN`推送简单的运行结果到微信
-+ 由 `github actions` 每日八点定时运行
++ 由 `github actions` 每日7点定时运行
 
 
 
