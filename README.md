@@ -11,7 +11,7 @@
 # 1. 实现功能
 + `什么值得买`每日签到
 + 通过 `SERVERCHAN`推送简单的运行结果到微信
-+ 由 `github actions` 每日八点定时运行
++ 由 `github actions` 每日7点定时运行
 
 # 2. 使用方法
 1. Fork [此仓库项目](https://github.com/stark666/smzdm_bot) > 点击右上角fork按钮即可，欢迎点`star`~
