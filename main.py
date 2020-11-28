@@ -57,7 +57,9 @@ if __name__ == '__main__':
     res = sb.checkin()
     print(res)
     if "SERVERCHAN_SECRETKEY" in os.environ.keys():
+        print('检测到 SCKEY， 准备推送')
         SERVERCHAN_SECRETKEY = os.environ["SERVERCHAN_SECRETKEY"]
         push_to_wechat(text = '什么值得买每日签到',
                         desp = str(res),
                         secretKey = SERVERCHAN_SECRETKEY)
+    print('代码完毕')
