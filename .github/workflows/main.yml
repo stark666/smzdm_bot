@@ -39,21 +39,3 @@ jobs:
           COOKIES: ${{ secrets.SMZDM_COOKIE }}
           SERVERCHAN_SECRETKEY: ${{ secrets.SERVERCHAN_SECRETKEY }}
         run: python main.py >SMZDM_Bot.log
-
-# --------------------- test ----------------- #
-      - name: Send E-mail
-        uses: dawidd6/action-send-mail@v2
-        with:
-          server_address: smtp.qq.com
-          server_port: 465
-          username: 472217937@qq.com
-          password: iqswmzufsdmrcbdf
-          subject: SMZDM_Bot
-          # Literal body:
-          # body: Build job of ${{github.repository}} completed successfully!
-          # Read file contents as body:
-          body: file://SMZDM_Bot.log
-          to: stark666666@outlook.com
-          from: Github Actions # <user@example.com>
-          # Optional content type (defaults to text/plain):
-          content_type: text/plain

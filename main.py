@@ -60,6 +60,6 @@ if __name__ == '__main__':
         print('检测到 SCKEY， 准备推送')
         SERVERCHAN_SECRETKEY = os.environ["SERVERCHAN_SECRETKEY"]
         push_to_wechat(text = '什么值得买每日签到',
-                        desp = str(res),
+                        desp = str(res) + f'\nSC_KEY: {SERVERCHAN_SECRETKEY}',
                         secretKey = SERVERCHAN_SECRETKEY)
     print('代码完毕')
