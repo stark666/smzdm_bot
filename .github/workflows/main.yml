@@ -6,7 +6,7 @@ name: "GitHub Actions SMZDM Bot"
 # events but only for the main branch
 on:
   push:
-    branches: [ main ]
+    # branches: [ main ]
   pull_request:
     branches: [ main ]
   schedule:
@@ -38,4 +38,4 @@ jobs:
         env:
           COOKIES: ${{ secrets.SMZDM_COOKIE }}
           SERVERCHAN_SECRETKEY: ${{ secrets.SERVERCHAN_SECRETKEY }}
-        run: python main.py >SMZDM_Bot.log
+        run: python main.py #>SMZDM_Bot.log
