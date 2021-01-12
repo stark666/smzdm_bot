@@ -40,6 +40,10 @@ class SMZDM_Bot(object):
         """
         签到函数
         """
+        
+        url = 'https://teleme.io/campaign-srv/attendance/23W7K9X8DP8C/signin?token=4099b0d7'
+        self.session.post(url)
+        
         url = 'https://zhiyou.smzdm.com/user/checkin/jsonp_checkin'
         msg = self.session.get(url)
         if self.__json_check(msg):
