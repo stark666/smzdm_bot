@@ -38,4 +38,10 @@ jobs:
         env:
           COOKIES: ${{ secrets.SMZDM_COOKIE }}
           SERVERCHAN_SECRETKEY: ${{ secrets.SERVERCHAN_SECRETKEY }}
+
+          HAIDAN_UID: ${{ secrets.HAIDAN_UID }}
+          HAIDAN_PASS: ${{ secrets.HAIDAN_PASS }}
+          HAIDAN_LOGIN: ${{ secrets.HAIDAN_LOGIN }}
+          HAIDAN_MULTI: ${{ secrets.HAIDAN_MULTI }}
+          HAIDAN_PRIVACY: ${{ secrets.HAIDAN_PRIVACY }}
         run: python main.py #>SMZDM_Bot.log
