@@ -11,7 +11,7 @@ def push_to_wechat(text,desp,secretKey):
     :param desp: 内容
     :return resp: json
     """
-    url = f'http://sc.ftqq.com/{secretKey}.send'
+    url = f'http://sctapi.ftqq.com/{secretKey}.send'
     session = requests.Session()
     data = {'text':text,'desp':desp}
     resp = session.post(url,data = data)
