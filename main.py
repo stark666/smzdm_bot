@@ -56,11 +56,12 @@ if __name__ == '__main__':
     sb.load_cookie_str(cookies)
     res = sb.checkin()
     print(res)
-    SERVERCHAN_SECRETKEY = os.environ["SERVERCHAN_SECRETKEY"]
-    print('sc_key: ', SERVERCHAN_SECRETKEY)
-    if isinstance(SERVERCHAN_SECRETKEY,str) and len(SERVERCHAN_SECRETKEY)>0:
-        print('检测到 SCKEY， 准备推送')
+    WX_PUSHER_UID = os.environ["WX_PUSHER_UID"]
+    WX_PUSHER = os.environ["WX_PUSHER"]
+    if isinstance(WX_PUSHER,str) and len(WX_PUSHER)>0:
+        print('检测到 WX_PUSHER 准备推送')
         push_to_wechat(text = '什么值得买每日签到',
                         desp = str(res),
-                        secretKey = SERVERCHAN_SECRETKEY)
+                        appToken=WX_PUSHER,
+                        uid=WX_PUSHER_UID)
     print('代码完毕')
