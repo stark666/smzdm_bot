@@ -54,7 +54,7 @@ if __name__ == '__main__':
     cookies = config.TEST_COOKIE
 
     # DEBUG
-    debug = True
+    debug = False
     if debug == False:
         cookies = os.environ["COOKIES"]
         DINGTALK_ROBOT_SECRET = os.environ["DINGTALK_ROBOT_SECRET"]
