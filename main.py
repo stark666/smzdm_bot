@@ -48,9 +48,9 @@ class SMZDM_Bot(object):
 
 if __name__ == '__main__':
     sb = SMZDM_Bot()
-    sb.load_cookie_str(config.TEST_COOKIE)
-    # cookies = os.environ["COOKIES"]
-    # sb.load_cookie_str(cookies)
+    # sb.load_cookie_str(config.TEST_COOKIE)
+    cookies = os.environ["COOKIES"]
+    sb.load_cookie_str(cookies)
     res = sb.checkin()
     print(res)
 
@@ -62,10 +62,10 @@ if __name__ == '__main__':
                         desp = str(res),
                         secretKey = SERVERCHAN_SECRETKEY)
 
-    DINGTALK_ROBOT_SECRET = config.TEST_DINGTALK_ROBOT_SECRET
-    DINGTALK_ROBOT_TOKEN = config.TEST_DINGTALK_ROBOT_TOKEN
-    # DINGTALK_ROBOT_SECRET = os.environ["DINGTALK_ROBOT_SECRET"]
-    # DINGTALK_ROBOT_TOKEN = os.environ["DINGTALK_ROBOT_TOKEN"]
+    # DINGTALK_ROBOT_SECRET = config.TEST_DINGTALK_ROBOT_SECRET
+    # DINGTALK_ROBOT_TOKEN = config.TEST_DINGTALK_ROBOT_TOKEN
+    DINGTALK_ROBOT_SECRET = os.environ["DINGTALK_ROBOT_SECRET"]
+    DINGTALK_ROBOT_TOKEN = os.environ["DINGTALK_ROBOT_TOKEN"]
     if (isinstance(DINGTALK_ROBOT_TOKEN,str) and len(DINGTALK_ROBOT_TOKEN)>0) and (isinstance(DINGTALK_ROBOT_SECRET,str) and len(DINGTALK_ROBOT_SECRET)>0):
          print('检测到 "钉钉机器人" 准备推送')
          push_to_dingtalk(token = DINGTALK_ROBOT_TOKEN, secret = DINGTALK_ROBOT_SECRET)
