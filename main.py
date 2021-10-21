@@ -7,7 +7,7 @@ import requests,os
 from sys import argv
 
 import config
-from utils.serverchan_push import push_to_wechat
+from utils.serverchan_push import push_to_dingtalk, push_to_wechat
 
 class SMZDM_Bot(object):
     def __init__(self):
@@ -22,7 +22,7 @@ class SMZDM_Bot(object):
         """
         try:
             result = msg.json()
-            print(result)
+            # print(result)
             return True
         except Exception as e:
             print(f'Error : {e}')            
@@ -34,7 +34,7 @@ class SMZDM_Bot(object):
         cookie 为浏览器复制来的字符串
         :param cookie: 登录过的社区网站 cookie
         """
-        self.session.headers['Cookie'] = cookies    
+        self.session.headers['Cookie'] = cookies.encode('utf-8')    
 
     def checkin(self):
         """
@@ -46,21 +46,39 @@ class SMZDM_Bot(object):
             return msg.json()
         return msg.content
 
-
-
-
 if __name__ == '__main__':
     sb = SMZDM_Bot()
-    # sb.load_cookie_str(config.TEST_COOKIE)
-    cookies = os.environ["COOKIES"]
+
+    DINGTALK_ROBOT_SECRET = config.TEST_DINGTALK_ROBOT_SECRET
+    DINGTALK_ROBOT_TOKEN = config.TEST_DINGTALK_ROBOT_TOKEN
+    cookies = config.TEST_COOKIE
+
+    # DEBUG
+    debug = True
+    if debug == False:
+        cookies = os.environ["COOKIES"]
+        DINGTALK_ROBOT_SECRET = os.environ["DINGTALK_ROBOT_SECRET"]
+        DINGTALK_ROBOT_TOKEN = os.environ["DINGTALK_ROBOT_TOKEN"]
+
     sb.load_cookie_str(cookies)
     res = sb.checkin()
     print(res)
-    SERVERCHAN_SECRETKEY = os.environ["SERVERCHAN_SECRETKEY"]
+
+    check_in = '失败'
+    if res['error_code'] == 0:
+        check_in = '成功'
+
+    SERVERCHAN_SECRETKEY = ''#os.environ["SERVERCHAN_SECRETKEY"]
     print('sc_key: ', SERVERCHAN_SECRETKEY)
     if isinstance(SERVERCHAN_SECRETKEY,str) and len(SERVERCHAN_SECRETKEY)>0:
         print('检测到 SCKEY， 准备推送')
         push_to_wechat(text = '什么值得买每日签到',
                         desp = str(res),
                         secretKey = SERVERCHAN_SECRETKEY)
+
+    if (isinstance(DINGTALK_ROBOT_TOKEN,str) and len(DINGTALK_ROBOT_TOKEN)>0) and (isinstance(DINGTALK_ROBOT_SECRET,str) and len(DINGTALK_ROBOT_SECRET)>0):
+         print('检测到 "钉钉机器人" 准备推送')
+         push_to_dingtalk(check = check_in, token = DINGTALK_ROBOT_TOKEN, secret = DINGTALK_ROBOT_SECRET)
+
+
     print('代码完毕')

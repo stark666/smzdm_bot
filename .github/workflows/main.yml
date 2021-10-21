@@ -38,4 +38,6 @@ jobs:
         env:
           COOKIES: ${{ secrets.SMZDM_COOKIE }}
           SERVERCHAN_SECRETKEY: ${{ secrets.SERVERCHAN_SECRETKEY }}
+          DINGTALK_ROBOT_SECRET: ${{ secrets.DINGTALK_ROBOT_SECRET}}
+          DINGTALK_ROBOT_TOKEN: ${{ secrets.DINGTALK_ROBOT_TOKEN}}
         run: python main.py #>SMZDM_Bot.log
