@@ -1,5 +1,6 @@
 什么值得买每日签到脚本
 ===
+[![GitHub Actions SMZDM Bot](https://github.com/flydo/smzdm_bot/actions/workflows/main.yml/badge.svg)](https://github.com/flydo/smzdm_bot/actions/workflows/main.yml)
 
 <p align="center">
     <img src="https://img.shields.io/badge/Created on-2020.10-green"/>
