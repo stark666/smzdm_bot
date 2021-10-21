@@ -34,7 +34,8 @@ class SMZDM_Bot(object):
         cookie 为浏览器复制来的字符串
         :param cookie: 登录过的社区网站 cookie
         """
-        self.session.headers['Cookie'] = cookies.encode('utf-8')    
+        if isinstance(cookies,str) and len(cookies) > 0:
+            self.session.headers['Cookie'] = cookies.encode('utf-8')    
 
     def checkin(self):
         """
@@ -56,10 +57,11 @@ if __name__ == '__main__':
     # DEBUG
     debug = False
     if debug == False:
-        cookies = os.environ["COOKIES"]
-        DINGTALK_ROBOT_SECRET = os.environ["DINGTALK_ROBOT_SECRET"]
-        DINGTALK_ROBOT_TOKEN = os.environ["DINGTALK_ROBOT_TOKEN"]
+        cookies = os.environ.get('COOKIES')
+        DINGTALK_ROBOT_SECRET = os.environ.get('DINGTALK_ROBOT_SECRET')
+        DINGTALK_ROBOT_TOKEN = os.environ.get('DINGTALK_ROBOT_TOKEN')
 
+    print(cookies)
     sb.load_cookie_str(cookies)
     res = sb.checkin()
     print(res)
@@ -68,7 +70,7 @@ if __name__ == '__main__':
     if res['error_code'] == 0:
         check_in = '成功'
 
-    SERVERCHAN_SECRETKEY = ''#os.environ["SERVERCHAN_SECRETKEY"]
+    SERVERCHAN_SECRETKEY = os.environ.get('SERVERCHAN_SECRETKEY')
     print('sc_key: ', SERVERCHAN_SECRETKEY)
     if isinstance(SERVERCHAN_SECRETKEY,str) and len(SERVERCHAN_SECRETKEY)>0:
         print('检测到 SCKEY， 准备推送')
