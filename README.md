@@ -1,12 +1,13 @@
 什么值得买每日签到脚本
 ===
-[![GitHub Actions SMZDM Bot](https://github.com/flydo/smzdm_bot/actions/workflows/main.yml/badge.svg)](https://github.com/flydo/smzdm_bot/actions/workflows/main.yml)
-
 <p align="center">
     <img src="https://img.shields.io/badge/Created on-2020.10-green"/>
     <img src="https://img.shields.io/badge/Python-3.7-blue"/>
     <img src="https://img.shields.io/badge/Last commit-Dec.-yellow"/>
     <img src="https://img.shields.io/badge/Repo size-35.8kb-red"/>
+</p>
+<p align="center">
+[![GitHub Actions SMZDM Bot](./actions/workflows/main.yml/badge.svg)](./actions/workflows/main.yml)
 </p>
 
 # 1. 实现功能
