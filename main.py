@@ -50,18 +50,14 @@ class SMZDM_Bot(object):
 if __name__ == '__main__':
     sb = SMZDM_Bot()
 
-    DINGTALK_ROBOT_SECRET = config.TEST_DINGTALK_ROBOT_SECRET
-    DINGTALK_ROBOT_TOKEN = config.TEST_DINGTALK_ROBOT_TOKEN
-    cookies = config.TEST_COOKIE
+    # DINGTALK_ROBOT_SECRET = config.TEST_DINGTALK_ROBOT_SECRET
+    # DINGTALK_ROBOT_TOKEN = config.TEST_DINGTALK_ROBOT_TOKEN
+    # cookies = config.TEST_COOKIE
 
-    # DEBUG
-    debug = False
-    if debug == False:
-        cookies = os.environ.get('COOKIES')
-        DINGTALK_ROBOT_SECRET = os.environ.get('DINGTALK_ROBOT_SECRET')
-        DINGTALK_ROBOT_TOKEN = os.environ.get('DINGTALK_ROBOT_TOKEN')
+    cookies = os.environ.get('COOKIES')
+    DINGTALK_ROBOT_SECRET = os.environ.get('DINGTALK_ROBOT_SECRET')
+    DINGTALK_ROBOT_TOKEN = os.environ.get('DINGTALK_ROBOT_TOKEN')
 
-    print(cookies)
     sb.load_cookie_str(cookies)
     res = sb.checkin()
     print(res)
