@@ -10,7 +10,7 @@ on:
   pull_request:
     branches: [ main ]
   schedule:
-    - cron: '0 23 * * *'
+    - cron: '0 17 * * *'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -37,7 +37,7 @@ jobs:
       - name: Working
         env:
           COOKIES: ${{ secrets.SMZDM_COOKIE }}
-          SERVERCHAN_SECRETKEY: ${{ secrets.SERVERCHAN_SECRETKEY }}
+          SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
           DINGTALK_ROBOT_SECRET: ${{ secrets.DINGTALK_ROBOT_SECRET}}
           DINGTALK_ROBOT_TOKEN: ${{ secrets.DINGTALK_ROBOT_TOKEN}}
-        run: python main.py #>SMZDM_Bot.log
+        run: python main.py
