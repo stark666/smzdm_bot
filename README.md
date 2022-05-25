@@ -9,11 +9,11 @@
 </p>
 
 # 1. 实现功能
-+ `什么值得买`每日签到 
++ `什么值得买`每日签到
 + 通过 `SERVERCHAN`推送简单的运行结果到微信
 + 由 `github actions` 每日7点定时运行
 
-# 2. 使用方法
+# 2. 使用方1法
 1. Fork [此仓库项目](https://github.com/stark666/smzdm_bot) > 点击右上角fork按钮即可，欢迎点`star`~
 2. Secret新增`SMZDM_COOKIE`，填入浏览器调试模式从[什么值得买官网](https://www.smzdm.com/)cookie信息, 不懂可看下面的其它
 3. （可选）Secret新增`SERVERCHAN_SECRETKEY`，获取方法可看这篇文章[@ruicky教程](https://ruicky.me/2020/06/05/jd-sign/)
